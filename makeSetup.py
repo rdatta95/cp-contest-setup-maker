@@ -1,16 +1,13 @@
-supported_sites = {
-    "codeforces" : ("www.codeforces.com"),
-    "codechef"   : ("www.codechef.com")
-}
+import codeforces
 
-site_number = 1
-print("Choose site:")
-for site in supported_sites.keys():
-    print("{0}. {1}".format(site_number, site))
-    site_number += 1
-selection = int(input("Enter Choice : ").strip())
-site = list(supported_sites.keys())[ selection - 1 ]
+supported_sites = ["codeforces", "codechef"]
 
-contest = input("Enter Contest Code : ")
+for index in range(0, len(supported_sites)):
+    print("{0}. {1}".format(index + 1, supported_sites[index]))
+choice = int(input("Select site : ").strip())
 
-print( supported_sites[ site ] + "/" + contest)
+site = supported_sites[choice - 1]
+if site == "codeforces":
+    codeforces.makeSetup()
+else:
+    pass 
